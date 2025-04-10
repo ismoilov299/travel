@@ -34,59 +34,42 @@ function sendToTelegram(name, phone) {
 
 // Til almashtirish funksiyasi
 function changeLanguage(lang) {
+    // O'zbek tilini ko'rsatish
     if (lang === 'uz') {
         document.querySelectorAll('.lang-ru').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none'); // Ingliz tilini yashirish
         document.querySelectorAll('.lang-uz').forEach(el => el.style.display = 'block');
-    } else if (lang === 'ru') {
+    } 
+    // Rus tilini ko'rsatish
+    else if (lang === 'ru') {
         document.querySelectorAll('.lang-uz').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none'); // Ingliz tilini yashirish
         document.querySelectorAll('.lang-ru').forEach(el => el.style.display = 'block');
-    } else if (lang === 'en') {
+    } 
+    // Ingliz tilini ko'rsatish
+    else if (lang === 'en') {
         document.querySelectorAll('.lang-uz').forEach(el => el.style.display = 'none');
         document.querySelectorAll('.lang-ru').forEach(el => el.style.display = 'none');
         document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
     }
-    
-    // Linklar va tugmalar uchun inline-block stillarni qo'llash
-    document.querySelectorAll('a.lang-' + lang).forEach(el => el.style.display = 'inline-block');
-    document.querySelectorAll('button.lang-' + lang).forEach(el => el.style.display = 'inline-block');
-    
-    // Save language preference to localStorage
-    localStorage.setItem('preferredLanguage', lang);
-    
-    console.log('Til o\'zgartirildi:', lang);
 }
 
-// Sahifa elementlari uchun hodisalarni o'rnatish
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM yuklandi');
-    
-    // Avvalgi til tanlovini tekshirish va qo'llash
-    const savedLanguage = localStorage.getItem('preferredLanguage');
-    if (savedLanguage) {
-        console.log('Saqlangan til topildi:', savedLanguage);
-        changeLanguage(savedLanguage);
-        // Update the language selector to match the saved preference
-        const languageSelector = document.getElementById('language-selector');
-        if (languageSelector) {
-            languageSelector.value = savedLanguage;
-        }
-    } else {
-        // Default to Uzbek if no saved preference
-        console.log('Standart til o\'rnatildi: uz');
-        changeLanguage('uz');
-    }
+
+// Standart til sifatida o'zbek tilini o'rnatish va til tanlash hodisasini qo'shish
+window.onload = function() {
+    changeLanguage('uz');
     
     // Til o'zgartirish hodisasini qo'shish
     const languageSelector = document.getElementById('language-selector');
     if (languageSelector) {
         languageSelector.addEventListener('change', function() {
-            console.log('Til tanlagich o\'zgartirildi:', this.value);
             changeLanguage(this.value);
         });
     }
-    
+};
+
+// Sahifa elementlari uchun hodisalarni o'rnatish
+document.addEventListener('DOMContentLoaded', function() {
     // Aloqa formasini yuborish
     const contactForm = document.querySelector('.contact-form form');
     if (contactForm) {
@@ -108,8 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     message = 'Sizning xabaringiz yuborildi. Tez orada siz bilan bog\'lanamiz!';
                 } else if (currentLang === 'ru') {
                     message = 'Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время!';
-                } else if (currentLang === 'en') {
-                    message = 'Your message has been sent. We will contact you soon!';
                 }
                 
                 alert(message);

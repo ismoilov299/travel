@@ -76,6 +76,10 @@ nav {
     transition: color 0.3s;
 }
 
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -190,6 +194,12 @@ nav {
     margin-top: 30px;
 }
 
+.price {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
 /* Services Section */
 .services {
     padding: 80px 0;
@@ -276,10 +286,10 @@ nav {
     margin-bottom: 15px;
 }
 
-.contact-form h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.contact-detail i {
     color: var(--primary-color);
+    margin-right: 15px;
+    font-size: 20px;
 }
 
 .contact-form .form-group {
@@ -349,6 +359,12 @@ footer {
     color: var(--primary-color);
 }
 
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(198, 152, 63, 0.2);
+}
+
 /* Language Selector */
 #language-selector {
     padding: 5px 10px;
@@ -364,26 +380,8 @@ footer {
     color: var(--text-color);
 }
 
-/* Language display rules */
-.lang-ru, .lang-en {
-    display: none !important;
-}
-
-/* O'zbekcha tilni standart holatda ko'rsatish */
-.lang-uz {
-    display: block !important;
-}
-
-/* Ayrim elementlarning turlicha ko'rinishlari uchun */
-a.lang-uz, a.lang-ru, a.lang-en,
-button.lang-uz, button.lang-ru, button.lang-en {
-    display: inline-block !important;
-}
-
-/* Map Section */
-.map-section {
-    padding: 80px 0;
-    background-color: var(--light-bg);
+.lang-ru {
+    display: none;
 }
 
 /* Responsive Styles */

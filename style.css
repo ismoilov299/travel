@@ -1,110 +1,42 @@
+/* Global Styles */
 :root {
-    --primary-color: #c6983f; /* Oltin/jigarrang asosiy rang */
+    --primary-color: #c6983f; /* Tilla/oltin rang */
     --primary-dark: #a07b2f; /* To'qroq oltin rang */
-    --secondary-color: #111111; /* To'q fon */
+    --secondary-color: #111111; /* To'q qora fon */
     --light-bg: #222222; /* Ochroq qora fon */
     --text-color: #f8f8f8; /* Oq matn */
     --accent-color: #d8b054; /* Yorqinroq oltin */
-}
-
-* {
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
     background-color: var(--secondary-color);
     color: var(--text-color);
     line-height: 1.6;
-}
-
-.container {
+  }
+  
+  .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
-
-/* Header Styles */
-header {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: var(--text-color);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 1px solid var(--primary-color);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    height: 60px;
-    margin-right: 15px;
-}
-
-.logo-text {
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--primary-color);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 30px;
-}
-
-.nav-links a {
-    color: var(--text-color);
+  }
+  
+  a {
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     color: var(--text-color);
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero p {
-    font-size: 20px;
-    max-width: 700px;
-    margin-bottom: 30px;
-}
-
-.btn {
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .btn {
     display: inline-block;
     padding: 12px 30px;
     background-color: var(--primary-color);
@@ -115,33 +47,138 @@ nav {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: background-color 0.3s;
-}
-
-.btn:hover {
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
     background-color: var(--primary-dark);
-}
-
-/* Featured Tour Package */
-.featured-tour {
-    padding: 80px 0;
-    background-color: var(--light-bg);
-}
-
-.section-title {
+  }
+  
+  .section-title {
     text-align: center;
     font-size: 36px;
     margin-bottom: 20px;
     color: var(--primary-color);
-}
-
-.section-subtitle {
+  }
+  
+  .section-subtitle {
     text-align: center;
     font-size: 18px;
     margin-bottom: 50px;
     color: #ccc;
-}
-
-.tour-card {
+  }
+  
+  /* Language Selector */
+  #language-selector {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+  
+  #language-selector option {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+  
+  /* Barcha til klasslarini yashirish */
+  .lang-uz,
+  .lang-ru,
+  .lang-en {
+    display: none;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: var(--text-color);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--primary-color);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Logo styles */
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    height: 60px;
+    margin-right: 15px;
+  }
+  
+  .logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-links li {
+    margin-left: 30px;
+  }
+  
+  .nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+      url("https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80")
+      no-repeat center center / cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero p {
+    font-size: 20px;
+    max-width: 700px;
+    margin-bottom: 30px;
+  }
+  
+  /* Featured Tour Package */
+  .featured-tour {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+  }
+  
+  .tour-card {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     overflow: hidden;
@@ -150,159 +187,183 @@ nav {
     max-width: 1000px;
     margin: 0 auto;
     border: 1px solid var(--primary-color);
-}
-
-.tour-card:hover {
+  }
+  
+  .tour-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-}
-
-.tour-image {
+  }
+  
+  .tour-image {
     height: 400px;
-    background: url('https://images.unsplash.com/photo-1589308078059-be1415eab4c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80') no-repeat center center/cover;
-}
-
-.tour-content {
+    background: url("https://images.unsplash.com/photo-1589308078059-be1415eab4c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80")
+      no-repeat center center / cover;
+  }
+  
+  .tour-content {
     padding: 30px;
-}
-
-.tour-title {
+  }
+  
+  .tour-title {
     font-size: 28px;
     margin-bottom: 15px;
     color: var(--primary-color);
-}
-
-.tour-details {
+  }
+  
+  .tour-details {
     margin-bottom: 20px;
-}
-
-.tour-feature {
+  }
+  
+  .tour-feature {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-}
-
-.tour-feature i {
+  }
+  
+  .tour-feature i {
     color: var(--primary-color);
     margin-right: 10px;
-}
-
-.tour-price {
+  }
+  
+  .tour-price {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
-}
-
-.price {
+  }
+  
+  .price {
     font-size: 32px;
     font-weight: 700;
     color: var(--primary-color);
-}
-
-/* Services Section */
-.services {
+  }
+  
+  /* Services Section */
+  .services {
     padding: 80px 0;
     background-color: var(--secondary-color);
-}
-
-.services-grid {
+  }
+  
+  .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-}
-
-.service-card {
+  }
+  
+  .service-card {
     background-color: var(--light-bg);
     border-radius: 8px;
     padding: 30px;
     text-align: center;
     transition: transform 0.3s;
     border: 1px solid var(--primary-color);
-}
-
-.service-card:hover {
+  }
+  
+  .service-card:hover {
     transform: translateY(-10px);
-}
-
-.service-icon {
+  }
+  
+  .service-icon {
     font-size: 50px;
     color: var(--primary-color);
     margin-bottom: 20px;
-}
-
-.service-title {
+  }
+  
+  .service-title {
     font-size: 24px;
     margin-bottom: 15px;
     color: var(--primary-color);
-}
-
-/* About Section */
-.about {
+  }
+  
+  /* About Section */
+  .about {
     padding: 80px 0;
     background-color: var(--light-bg);
-}
-
-.about-grid {
+  }
+  
+  .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
-}
-
-.about-image {
+  }
+  
+  .about-image {
     height: 400px;
-    background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80') no-repeat center center/cover;
+    background: url("https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80")
+      no-repeat center center / cover;
     border-radius: 8px;
     border: 1px solid var(--primary-color);
-}
-
-.about-content h2 {
+  }
+  
+  .about-content h2 {
     font-size: 36px;
     margin-bottom: 20px;
     color: var(--primary-color);
-}
-
-/* Contact Section */
-.contact {
-    padding: 80px 0;
+  }
+  
+  /* Map Section */
+  .map-section {
+    padding: 80px 0 0;
     background-color: var(--secondary-color);
-}
-
-.contact-grid {
+  }
+  
+  .map-container {
+    height: 500px;
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid var(--primary-color);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  /* Contact Section */
+  .contact {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+  }
+  
+  .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
-}
-
-.contact-info h3 {
+  }
+  
+  .contact-info h3,
+  .contact-form h3 {
     font-size: 24px;
     margin-bottom: 20px;
     color: var(--primary-color);
-}
-
-.contact-detail {
+  }
+  
+  .contact-detail {
     display: flex;
     margin-bottom: 15px;
-}
-
-.contact-detail i {
+  }
+  
+  .contact-detail i {
     color: var(--primary-color);
     margin-right: 15px;
     font-size: 20px;
-}
-
-.contact-form .form-group {
+  }
+  
+  .contact-form .form-group {
     margin-bottom: 20px;
-}
-
-.contact-form label {
+  }
+  
+  .contact-form label {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
-}
-
-.contact-form input {
+  }
+  
+  .contact-form input {
     width: 100%;
     padding: 12px;
     background-color: var(--light-bg);
@@ -310,100 +371,82 @@ nav {
     border-radius: 4px;
     font-size: 16px;
     color: var(--text-color);
-}
-
-.contact-form input:focus {
+  }
+  
+  .contact-form input:focus {
     outline: none;
     border-color: var(--accent-color);
-}
-
-/* Footer */
-footer {
+  }
+  
+  /* Footer */
+  footer {
     background-color: rgba(0, 0, 0, 0.9);
     color: var(--text-color);
     padding: 50px 0 20px;
     border-top: 1px solid var(--primary-color);
-}
-
-.footer-grid {
+  }
+  
+  .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-bottom: 40px;
-}
-
-.footer-column h3 {
+  }
+  
+  .footer-column h3 {
     font-size: 20px;
     margin-bottom: 20px;
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 10px;
     display: inline-block;
     color: var(--primary-color);
-}
-
-.footer-links {
+  }
+  
+  .footer-links {
     list-style: none;
-}
-
-.footer-links li {
+  }
+  
+  .footer-links li {
     margin-bottom: 10px;
-}
-
-.footer-links a {
+  }
+  
+  .footer-links a {
     color: #ddd;
     text-decoration: none;
     transition: color 0.3s;
-}
-
-.footer-links a:hover {
+  }
+  
+  .footer-links a:hover {
     color: var(--primary-color);
-}
-
-.copyright {
+  }
+  
+  .copyright {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid rgba(198, 152, 63, 0.2);
-}
-
-/* Language Selector */
-#language-selector {
-    padding: 5px 10px;
-    border-radius: 4px;
-    border: 1px solid var(--primary-color);
-    background-color: transparent;
-    color: var(--text-color);
-    cursor: pointer;
-}
-
-#language-selector option {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-}
-
-.lang-ru {
-    display: none;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
     .hero h1 {
-        font-size: 36px;
+      font-size: 36px;
     }
-    
+  
     .hero p {
-        font-size: 18px;
+      font-size: 18px;
     }
-    
+  
     .about-grid,
     .contact-grid {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-    
+  
     .nav-links {
-        display: none;
+      display: none;
     }
-    
+  
     .logo-img {
-        height: 40px;
+      height: 40px;
     }
-}
+  }
+  

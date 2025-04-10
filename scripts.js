@@ -48,15 +48,24 @@ function changeLanguage(lang) {
         document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
     }
     
+    // Linklar va tugmalar uchun inline-block stillarni qo'llash
+    document.querySelectorAll('a.lang-' + lang).forEach(el => el.style.display = 'inline-block');
+    document.querySelectorAll('button.lang-' + lang).forEach(el => el.style.display = 'inline-block');
+    
     // Save language preference to localStorage
     localStorage.setItem('preferredLanguage', lang);
+    
+    console.log('Til o\'zgartirildi:', lang);
 }
 
-// Standart til sifatida o'zbek tilini o'rnatish va til tanlash hodisasini qo'shish
-window.onload = function() {
-    // Check if user has a preferred language saved
+// Sahifa elementlari uchun hodisalarni o'rnatish
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM yuklandi');
+    
+    // Avvalgi til tanlovini tekshirish va qo'llash
     const savedLanguage = localStorage.getItem('preferredLanguage');
     if (savedLanguage) {
+        console.log('Saqlangan til topildi:', savedLanguage);
         changeLanguage(savedLanguage);
         // Update the language selector to match the saved preference
         const languageSelector = document.getElementById('language-selector');
@@ -65,6 +74,7 @@ window.onload = function() {
         }
     } else {
         // Default to Uzbek if no saved preference
+        console.log('Standart til o\'rnatildi: uz');
         changeLanguage('uz');
     }
     
@@ -72,7 +82,57 @@ window.onload = function() {
     const languageSelector = document.getElementById('language-selector');
     if (languageSelector) {
         languageSelector.addEventListener('change', function() {
+            console.log('Til tanlagich o\'zgartirildi:', this.value);
             changeLanguage(this.value);
         });
     }
-};
+    
+    // Aloqa formasini yuborish
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            
+            if (name && phone) {
+                // Telegram botga xabar yuborish
+                sendToTelegram(name, phone);
+                
+                // Foydalanuvchiga xabar ko'rsatish
+                const currentLang = document.getElementById('language-selector').value;
+                let message = '';
+                
+                if (currentLang === 'uz') {
+                    message = 'Sizning xabaringiz yuborildi. Tez orada siz bilan bog\'lanamiz!';
+                } else if (currentLang === 'ru') {
+                    message = 'Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время!';
+                } else if (currentLang === 'en') {
+                    message = 'Your message has been sent. We will contact you soon!';
+                }
+                
+                alert(message);
+                contactForm.reset();
+            }
+        });
+    }
+    
+    // Animatsiyali sahifaga o'tish
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});

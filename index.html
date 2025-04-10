@@ -5,6 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>West is Best - Travel Agency</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Qisqa script til tanlovini tekshirish uchun -->
+    <script>
+        (function() {
+            // Tilni darhol yuklash va qo'llash
+            function applyLanguage(lang) {
+                document.documentElement.setAttribute('lang', lang);
+                if (lang === 'uz') {
+                    document.querySelectorAll('.lang-ru').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.lang-uz').forEach(el => el.style.display = 'block');
+                } else if (lang === 'ru') {
+                    document.querySelectorAll('.lang-uz').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.lang-ru').forEach(el => el.style.display = 'block');
+                } else if (lang === 'en') {
+                    document.querySelectorAll('.lang-uz').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.lang-ru').forEach(el => el.style.display = 'none');
+                    document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+                }
+            }
+
+            // Avvalgi til tanlovini tekshirish
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            // Til tanlovini qo'llash
+            setTimeout(function() {
+                applyLanguage(savedLanguage || 'uz');
+            }, 10);
+            
+            // DOMContentLoaded hodisasida til tanlagichni sozlash
+            document.addEventListener('DOMContentLoaded', function() {
+                const selector = document.getElementById('language-selector');
+                if (selector) {
+                    selector.value = savedLanguage || 'uz';
+                    selector.addEventListener('change', function() {
+                        applyLanguage(this.value);
+                        localStorage.setItem('preferredLanguage', this.value);
+                    });
+                }
+            });
+        })();
+    </script>
 </head>
 <body>
     <!-- Header -->

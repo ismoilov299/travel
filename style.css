@@ -88,7 +88,7 @@
   .lang-uz,
   .lang-ru,
   .lang-en {
-    display: none;
+    display: none !important;
   }
   
   /* Header Styles */
